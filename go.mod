@@ -5,7 +5,8 @@ go 1.25.5
 require (
 	github.com/caddyserver/caddy/v2 v2.7.5
 	github.com/libdns/libdns v1.1.1
-	github.com/libdns/tecnocratica v0.1.1
+	github.com/libdns/tecnocratica v0.1.2
+	go.uber.org/zap v1.27.0
 )
 
 require (
@@ -32,7 +33,6 @@ require (
 	github.com/zeebo/blake3 v0.2.4 // indirect
 	go.uber.org/mock v0.3.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	go.uber.org/zap v1.27.0 // indirect
 	go.uber.org/zap/exp v0.3.0 // indirect
 	golang.org/x/crypto v0.41.0 // indirect
 	golang.org/x/exp v0.0.0-20230310171629-522b1b587ee0 // indirect

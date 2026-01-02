@@ -51,7 +51,7 @@ func TestUnmarshalCaddyfile(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			d := caddyfile.NewTestDispenser(tt.input)
-			p := &Provider{new(libdnstecnocratica.Provider)}
+			p := &Provider{Provider: new(libdnstecnocratica.Provider)}
 			err := p.UnmarshalCaddyfile(d)
 
 			if (err != nil) != tt.wantErr {
@@ -125,7 +125,7 @@ func TestUnmarshalCaddyfileEdgeCases(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			d := caddyfile.NewTestDispenser(tt.input)
-			p := &Provider{new(libdnstecnocratica.Provider)}
+			p := &Provider{Provider: new(libdnstecnocratica.Provider)}
 			err := p.UnmarshalCaddyfile(d)
 
 			if (err != nil) != tt.wantErr {
@@ -195,7 +195,7 @@ func TestProvision(t *testing.T) {
 				}
 			}
 
-			p := &Provider{&libdnstecnocratica.Provider{
+			p := &Provider{Provider: &libdnstecnocratica.Provider{
 				APIToken: tt.apiToken,
 				APIURL:   tt.apiURL,
 			}}
@@ -234,7 +234,7 @@ func TestInterfaceGuards(t *testing.T) {
 	}
 
 	// Verify libdns interfaces are accessible through embedded Provider
-	provider := &Provider{new(libdnstecnocratica.Provider)}
+	provider := &Provider{Provider: new(libdnstecnocratica.Provider)}
 
 	if _, ok := any(provider.Provider).(libdns.RecordGetter); !ok {
 		t.Error("Embedded Provider does not implement libdns.RecordGetter")
@@ -290,7 +290,7 @@ func TestProviderIntegration(t *testing.T) {
 	}`
 
 	d := caddyfile.NewTestDispenser(input)
-	p := &Provider{new(libdnstecnocratica.Provider)}
+	p := &Provider{Provider: new(libdnstecnocratica.Provider)}
 
 	// Unmarshal configuration
 	err := p.UnmarshalCaddyfile(d)
