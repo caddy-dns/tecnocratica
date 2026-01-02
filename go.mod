@@ -5,7 +5,7 @@ go 1.25.5
 require (
 	github.com/caddyserver/caddy/v2 v2.7.5
 	github.com/libdns/libdns v1.1.1
-	github.com/libdns/tecnocratica v0.1.0
+	github.com/libdns/tecnocratica v0.1.1
 )
 
 require (
