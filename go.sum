@@ -34,8 +34,8 @@ github.com/klauspost/cpuid/v2 v2.3.0 h1:S4CRMLnYUhGeDFDqkGriYKdfoFlDnMtqTiI/sFzh
 github.com/klauspost/cpuid/v2 v2.3.0/go.mod h1:hqwkgyIinND0mEev00jJYCxPNVRVXFQeu1XKlok6oO0=
 github.com/libdns/libdns v1.1.1 h1:wPrHrXILoSHKWJKGd0EiAVmiJbFShguILTg9leS/P/U=
 github.com/libdns/libdns v1.1.1/go.mod h1:4Bj9+5CQiNMVGf87wjX4CY3HQJypUHRuLvlsfsZqLWQ=
-github.com/libdns/tecnocratica v0.1.2 h1:ze+svS7s1GpzIuoq/JkvbNzqG1sEBaRGyhZz5Iy4bI4=
-github.com/libdns/tecnocratica v0.1.2/go.mod h1:z7Edr2V48QmwRcKQO3Q55U78zXPzSwHDg8TwlJNA6kI=
+github.com/libdns/tecnocratica v0.1.4 h1:cCZA+pijD03DGq7DcwpM714/e8UFutTlN1j5jaNQp0s=
+github.com/libdns/tecnocratica v0.1.4/go.mod h1:z7Edr2V48QmwRcKQO3Q55U78zXPzSwHDg8TwlJNA6kI=
 github.com/matttproud/golang_protobuf_extensions v1.0.4 h1:mmDVorXM7PCGKw94cs5zkfA9PSy5pEvNWRP0ET0TIVo=
 github.com/matttproud/golang_protobuf_extensions v1.0.4/go.mod h1:BSXmuO+STAnVfrANrmjBb36TMTDstsz7MSK+HVaYKv4=
 github.com/mholt/acmez/v3 v3.1.3 h1:gUl789rjbJSuM5hYzOFnNaGgWPV1xVfnOs59o0dZEcc=
