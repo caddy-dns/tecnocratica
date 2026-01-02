@@ -60,11 +60,11 @@ func TestUnmarshalCaddyfile(t *testing.T) {
 			}
 
 			if !tt.wantErr {
-				if p.Provider.APIToken != tt.wantToken {
-					t.Errorf("APIToken = %v, want %v", p.Provider.APIToken, tt.wantToken)
+				if p.APIToken != tt.wantToken {
+					t.Errorf("APIToken = %v, want %v", p.APIToken, tt.wantToken)
 				}
-				if p.Provider.APIURL != tt.wantURL {
-					t.Errorf("APIURL = %v, want %v", p.Provider.APIURL, tt.wantURL)
+				if p.APIURL != tt.wantURL {
+					t.Errorf("APIURL = %v, want %v", p.APIURL, tt.wantURL)
 				}
 			}
 		})
@@ -209,12 +209,12 @@ func TestProvision(t *testing.T) {
 				return
 			}
 
-			if p.Provider.APIToken != tt.expectedToken {
-				t.Errorf("APIToken after Provision() = %v, want %v", p.Provider.APIToken, tt.expectedToken)
+			if p.APIToken != tt.expectedToken {
+				t.Errorf("APIToken after Provision() = %v, want %v", p.APIToken, tt.expectedToken)
 			}
 
-			if p.Provider.APIURL != tt.expectedURL {
-				t.Errorf("APIURL after Provision() = %v, want %v", p.Provider.APIURL, tt.expectedURL)
+			if p.APIURL != tt.expectedURL {
+				t.Errorf("APIURL after Provision() = %v, want %v", p.APIURL, tt.expectedURL)
 			}
 		})
 	}
@@ -299,8 +299,8 @@ func TestProviderIntegration(t *testing.T) {
 	}
 
 	// Verify placeholders are not yet expanded
-	if p.Provider.APIToken != "{env.TEST_API_TOKEN}" {
-		t.Errorf("APIToken before Provision() = %v, want {env.TEST_API_TOKEN}", p.Provider.APIToken)
+	if p.APIToken != "{env.TEST_API_TOKEN}" {
+		t.Errorf("APIToken before Provision() = %v, want {env.TEST_API_TOKEN}", p.APIToken)
 	}
 
 	// Provision the provider
@@ -313,12 +313,12 @@ func TestProviderIntegration(t *testing.T) {
 	}
 
 	// Verify placeholders are expanded
-	if p.Provider.APIToken != "integration_test_token" {
-		t.Errorf("APIToken after Provision() = %v, want integration_test_token", p.Provider.APIToken)
+	if p.APIToken != "integration_test_token" {
+		t.Errorf("APIToken after Provision() = %v, want integration_test_token", p.APIToken)
 	}
 
-	if p.Provider.APIURL != "https://api.test.example.com/v1" {
-		t.Errorf("APIURL after Provision() = %v, want https://api.test.example.com/v1", p.Provider.APIURL)
+	if p.APIURL != "https://api.test.example.com/v1" {
+		t.Errorf("APIURL after Provision() = %v, want https://api.test.example.com/v1", p.APIURL)
 	}
 }
 

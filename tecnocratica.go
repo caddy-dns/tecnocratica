@@ -32,12 +32,12 @@ func (Provider) CaddyModule() caddy.ModuleInfo {
 func (p *Provider) Provision(ctx caddy.Context) error {
 	p.logger = ctx.Logger()
 	repl := caddy.NewReplacer()
-	p.Provider.APIToken = repl.ReplaceAll(p.Provider.APIToken, "")
-	p.Provider.APIURL = repl.ReplaceAll(p.Provider.APIURL, "")
+	p.APIToken = repl.ReplaceAll(p.APIToken, "")
+	p.APIURL = repl.ReplaceAll(p.APIURL, "")
 
 	p.logger.Info("tecnocratica DNS provider provisioned",
-		zap.String("api_url", p.Provider.APIURL),
-		zap.Bool("has_token", p.Provider.APIToken != ""))
+		zap.String("api_url", p.APIURL),
+		zap.Bool("has_token", p.APIToken != ""))
 
 	return nil
 }
@@ -52,23 +52,23 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 	d.Next() // consume directive name
 
 	if d.NextArg() {
-		p.Provider.APIToken = d.Val()
+		p.APIToken = d.Val()
 	}
 
 	for d.NextBlock(0) {
 		switch d.Val() {
 		case "api_token":
-			if p.Provider.APIToken != "" {
+			if p.APIToken != "" {
 				return d.Err("API token already set")
 			}
 			if d.NextArg() {
-				p.Provider.APIToken = d.Val()
+				p.APIToken = d.Val()
 			} else {
 				return d.ArgErr()
 			}
 		case "api_url":
 			if d.NextArg() {
-				p.Provider.APIURL = d.Val()
+				p.APIURL = d.Val()
 			} else {
 				return d.ArgErr()
 			}
@@ -81,7 +81,7 @@ func (p *Provider) UnmarshalCaddyfile(d *caddyfile.Dispenser) error {
 		return d.Errf("unexpected argument '%s'", d.Val())
 	}
 
-	if p.Provider.APIToken == "" {
+	if p.APIToken == "" {
 		return d.Err("missing API token")
 	}
 
